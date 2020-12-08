@@ -1,0 +1,175 @@
+
+<html>
+    <head>
+        <title>
+          LeaderBoard
+        </title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" 
+        integrity="sha384-CuOF+2SnTUfTwSZjCXf01h7uYhfOBuxIhGKPbfEJ3+FqH/s6cIFN9bGr1HmAg4fQ" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    </head>
+    <body>
+      <style>
+        body{
+          background-color: #ffffff;
+        }
+        nav a{
+         margin-left: 45%;
+        }
+        .pagination{
+          padding-top: 0.5%;
+          margin-left: 40%;
+        }
+        .sort{
+          float: right;
+          margin-top: 1%;
+          margin-right: 1%;
+        }
+        .previous{
+          float: left;
+          margin-top: 1%;
+          margin-left: 1%;
+        }
+      </style>
+        <section>
+          <nav class="navbar navbar-expand-lg navbar-dark indigo mb-4 text-center">
+            <a class="navbar-brand " href="#"><i class="fa fa-trophy mt-1" aria-hidden="true"></i>XÆA-12 HackerCup</a>
+          </nav>
+          <a href="/" class=" btn btn-dark previous">&laquo; Home</a>
+          <%if(current){%>
+            <form action="/leaderBoard/<%=current%>/sortByName" class="sort">
+              <button type="submit" class="btn btn-danger " data-color="dark">Sort By Name</button>
+            </form> 
+          <%}  %>
+        </section>
+        <marquee><h2 class="text-danger mt-1">Live LeaderBoard !</h2></marquee>
+        </section> 
+        <section>
+          <form action="/search" method="POST">
+            <input class="form-control mt-0 text-center" id="tableSearch" type="text"
+             placeholder="Search Team Name" name="team_name">
+          </form>  
+          <table class="striped centered responsive-table mt-5">
+            <thead>
+              <tr>
+                  <th>Team Name</th>
+                  <th>Wins</th>
+                  <th>Lost</th>
+                  <th>Draw</th>
+                  <th>Total Points</th>
+              </tr>
+            </thead>
+    
+            <tbody>
+              <% for(var i=0; i < docs.length; i++) { %>
+                <tr>
+                 
+                  <% if (current == 1 && i==0) { %>
+                    <td><%=docs[i].team_name%>
+                      <span class=" badge green text-white"> On Top</span> </td>
+                  <% } else { %>
+                    <td ><%=docs[i].team_name%></td>
+                  <% } %>
+                  
+                  <td><%=docs[i].wins%></td>
+                  <td><%=docs[i].losses%></td>
+                  <td><%=docs[i].ties%></td>
+                  <td><%=docs[i].score%></td>
+                </tr>
+             <% } %>    
+            </tbody>
+          </table>
+          <% if (pages > 0) { %>
+            <ul class="pagination text-center">
+                <% if (current == 1) { %>
+                    <li class="disabled"><a>First</a></li>
+                <% } else { %>
+                    <li><a href="/leaderboard/1">First</a></li>
+                <% } %>
+                <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+                <% if (i !== 1) { %>
+                    <li class="disabled"><a>...</a></li>
+                <% } %>
+                <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
+                    <% if (i == current) { %>
+                        <li class="active"><a><%= i %></a></li>
+                    <% } else { %>
+                        <li><a href="/leaderboard/<%= i %>"><%= i %></a></li>
+                    <% } %>
+                    <% if (i == Number(current) + 4 && i < pages) { %>
+                        <li class="disabled"><a>...</a></li>
+                    <% } %>
+                <% } %>
+                <% if (current == pages) { %>
+                    <li class="disabled"><a>Last</a></li>
+                <% } else { %>
+                    <li><a href="/leaderboard/<%= pages %>">Last</a></li>
+                <% } %>
+            </ul>
+        <% } %>
+        </section>
+        <script>
+               //copy uniue id
+               function myFunction() {
+                  var copyText = document.getElementById("0");
+                  var copyText1 = document.getElementById("1");
+                  var copyText2 = document.getElementById("2"); 
+                  var copyText3 = document.getElementById("3");
+                  var copyText4 = document.getElementById("4");
+                  var copyText5 = document.getElementById("5");
+                  var copyText6 = document.getElementById("6");
+                  var copyText7= document.getElementById("7");
+                  var copyText8 = document.getElementById("8");
+                  var copyText9 = document.getElementById("9");
+
+                  if(copyText!==undefined){
+                    console.log(copyText);
+                    document.execCommand("copy");
+                alert("Copied the text: " + copyText.value);
+                  }else if(copyText1!==undefined){
+                    console.log(copyText1);
+                    document.execCommand("copy");
+                alert("Copied the text: " + copyText1.value);
+                  }else if(copyText2!==undefined){
+                    console.log(copyText2);
+                    document.execCommand("copy");
+                alert("Copied the text: " + copyText2.value);
+                  }else if(copyText3!==undefined){
+                    console.log(copyText3);
+                    document.execCommand("copy");
+                alert("Copied the text: " + copyText3.value);
+                  }else if(copyText4!==undefined){
+                    console.log(copyText4);
+                    document.execCommand("copy");
+                alert("Copied the text: " + copyText4.value);
+                  }else if(copyText5!==undefined){
+                    console.log(copyText5);
+                    document.execCommand("copy");
+                alert("Copied the text: " + copyText5.value);
+                  }else if(copyText6!==undefined){
+                    console.log(copyText6);
+                    document.execCommand("copy");
+                alert("Copied the text: " + copyText6.value);
+                  }else if(copyText7!==undefined){
+                    console.log(copyText7);
+                    document.execCommand("copy");
+                alert("Copied the text: " + copyText7.value);
+                  }else if(copyText8!==undefined){
+                    console.log(copyText8);
+                    document.execCommand("copy");
+                alert("Copied the text: " + copyText8.value);
+                  }else if(copyText9!==undefined){
+                    console.log(copyText9);
+                    document.execCommand("copy");
+                alert("Copied the text: " + copyText9.value);
+                  }
+                
+               }
+               
+        </script>
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    </body>
+</html>

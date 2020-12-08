@@ -1,0 +1,102 @@
+<html>
+    <head>
+        <title>
+         CODA
+        </title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" 
+        integrity="sha384-CuOF+2SnTUfTwSZjCXf01h7uYhfOBuxIhGKPbfEJ3+FqH/s6cIFN9bGr1HmAg4fQ" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    </head>
+    <body>
+      <style>
+        body{
+          background: #EAF0F1;
+        }
+        .row {
+          margin-bottom: 50;
+        }
+         .btn-warning{
+           /* float: right; */
+           padding-right: 10;
+           width: 300;
+           height: 300;
+           margin-top: 17%;
+        }
+        .btn-warning:hover{
+           /* float: right; */
+           padding-right: 10;
+           width: 350;
+           height: 350;
+           
+           margin-top: 17%;
+        }
+        .btn-primary{
+           /* float: right; */
+           padding-right: 10;
+           width: 300;
+           height: 300;
+           margin-top: 17%;
+        }
+        .btn-primary:hover{
+           /* float: right; */
+           padding-right: 10;
+           width: 350;
+           height: 350;
+           margin-top: 17%;
+        }
+        .btn-danger{
+           /* float: right; */
+           padding-right: 10;
+           width: 300;
+           height: 300;
+           margin-top: 17%;
+        }
+        .btn-danger:hover{
+           /* float: right; */
+           padding-right: 10;
+           width: 350;
+           height: 350;
+           margin-top: 17%;
+           text-shadow: 0 0 3px;
+        }
+        nav a{
+            margin-left: 45%;
+           }
+           
+      </style>
+        <section>
+          <nav class="navbar navbar-expand-lg navbar-dark indigo mb-4 text-center">
+            <a class="navbar-brand " href="#"><i class="fa fa-trophy mt-1" aria-hidden="true"></i>XÆA-12 HackerCup</a>
+          </nav>
+        
+          
+        </section>
+        <h2 class="text-center text-danger mt-5"> <%=msg%></h2>
+        <section class="text-center">
+          <div class="row">
+            <div class="col-md-4">
+                    <form action= "/addName">
+                      <button  class="btn btn-primary " data-color="dark">Add Team Name </button>
+                    </form>
+            </div>
+            <div class="col-md-4 ">
+                    <form action="/leaderBoard/1">
+                      <button type="submit" class="btn btn-warning " data-color="dark">Go To LeaderBoard</button>
+                    </form>
+            </div>
+            <div class="col-md-4 ">
+                   <form action="/Score">
+                      <button type="submit" class="btn btn-danger " data-color="dark">Assign Scores</button>
+                   </form>
+           </div>
+        </div>
+        <form action="/fetchData">
+          <button type="submit" class="btn btn-dark" data-color="dark">FetchData</button>
+        </form>
+        </section> 
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    </body>
+</html>
